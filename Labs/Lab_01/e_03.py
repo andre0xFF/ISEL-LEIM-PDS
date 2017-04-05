@@ -18,9 +18,12 @@ def item_01_function(interval, n, f0):
     x = np.zeros(len(interval))
 
     for k in np.arange(interval[0], interval[1] + 1):
-        x = x + 4 / np.pi * (np.sin(2 * np.pi * (2 * k - 1) * f0 * t) / (2 * k - 1))
+        x = np.sin(2 * np.pi * (2 * k - 1) * f0 * t) / (2 * k - 1)
+
+    x = x + 4 / np.pi * x
 
     return x
+
 
 def item_01():
     f0 = 1
