@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/andrewfonseca/PDS.svg?token=xhSvC9MhC41fwpYgqaqf&branch=master)](https://travis-ci.com/andrewfonseca/PDS)
+
 # Bibliography
 https://ccrma.stanford.edu/~jos/mdft/
 
@@ -161,4 +163,3 @@ plt.plot(kv, y)
 plt.axis([- n / 2, n / 2 - 1, -1, 1])
 plt.show()
 ```
-
