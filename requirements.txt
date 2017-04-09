@@ -1,6 +1,5 @@
 Beaker==1.5.4
 beautifulsoup4==4.5.3
-blivet==2.1.6
 Brlapi==0.6.5
 chardet==2.3.0
 coverage==4.2
