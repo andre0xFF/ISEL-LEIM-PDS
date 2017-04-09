@@ -1,4 +1,4 @@
 Cython==0.25.2
-matplotlib==1.5.2rc2
+matplotlib>=1.5.2
 numpy==1.11.2
 scipy==0.18.0
