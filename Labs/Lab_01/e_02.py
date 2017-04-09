@@ -10,26 +10,22 @@ def main():
 
 
 def item_01():
-    interval = [-4.5, -1.5]
-    t = np.linspace(interval[0], interval[1], 1e04)
+    interval = [-4.5, 1.5]
+    t = np.linspace(interval[0], interval[1] + 1, 1e04)
     x = np.zeros(len(t))
 
-    #procura os indices dos t que verificam ambas as condições e nesses sitios o x vai valer 1
     x[(-2 * t - 4 >= 0) & (-t - 4 <= 0)] = 1
 
-    plt.close()
-    plt.figure(facecolor='w', figsize=(7, 5))
-    plt.plot(t, x, 'k', linewidth=1.5)
-    plt.axis([interval[0], interval[1], -0.1, 1.1])
-    plt.xticks(fontsize=18)
-    plt.yticks(fontsize=18)
-    plt.xlabel('t(s)',fontsize=10)
-    plt.ylabel('x(t)',fontsize=10)
-    plt.text(-3.5,1.2,'Lab-1 1.5',fontsize=24)
-    plt.title(r'$x(t)=u(-2t-4)-u(-t-4)')
+    # plt.close()
+    # plt.figure(facecolor='w', figsize=(7, 5))
+    # plt.plot(t, x, 'k', linewidth=1.5)
+    # plt.axis([interval[0], interval[1], -0.1, 1.1]])
+    # plt.xticks(fontsize=18)
+    # plt.yticks(fontsize=18)
+    # plt.xlabel()
+    # plt.ylabel()
+    # plt.title(r'$x(t)=u(-2t-4)-u(-t-4))
     plt.grid()
-    
-    plt.savefig("lab2_1.1.png",bbox_inches='tight',transparent=False)
     plt.show()
     # plt.savefig()
 
