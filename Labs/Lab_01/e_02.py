@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    # item_01()
-    # item_02()
-    item_03()
+   item_01()
+   item_02()
+   item_03()
 
 
 def item_01():
@@ -67,26 +67,6 @@ def item_02():
 
 
 def item_03():
-     interval=[-5, 1]
-     t=np.linspace(interval[0], interval[1]+1, 1e4)
-     x=np.zeros(t.shape)
-     u1=(t >= 0) 
-     u2=(t + 4 >= 0) 
-     
-     
-
-    plt.savefig("lab1_2.3.png", bbox_inches='tight', transparent=False)
-    plt.show()
-
-
-if __name__ == '__main__':
-    main()
-
-# comment
-
-    item_01()
-    item_02()
-    item_03()
     interval = [-5, 1]
     t = np.linspace(interval[0], interval[1]+1, 1e4)
     x = np.zeros(t.shape)
@@ -107,3 +87,17 @@ if __name__ == '__main__':
 
     plt.title('Lab1-2.3'+'\n'+r'$x(t)=\left ( cos \left ( \frac{3}{4} \pi t \right ) - \frac{\pi}{2} \right )^{3}(u(t)-u(t+4))$')
     plt.grid()
+     
+     
+
+    plt.savefig("lab1_2.3.png", bbox_inches='tight', transparent=False)
+    plt.show()
+
+
+if __name__ == '__main__':
+    main()
+
+
+
+    
+    
