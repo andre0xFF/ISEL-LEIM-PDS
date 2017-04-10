@@ -64,19 +64,29 @@ def item_02():
 
 
 def item_03():
-    # x(t)=\left ( cos \left ( \frac{3}{4} \pi t \right ) - \frac{\pi}{2} \right )^{3}(u(t)-u(t+4))
-    interval = [-5, 1]
-    t = np.linspace(interval[0], interval[1] + 1, 1e4)
-    x = np.zeros(t.shape)
-    u1 = (t >= 0)
-    u2 = (t + 4 >= 0)
+     interval=[-5, 1]
+     t=np.linspace(interval[0], interval[1]+1, 1e4)
+     x=np.zeros(t.shape)
+     u1=(t >= 0) 
+     u2=(t + 4 >= 0) 
+     
+     
 
-    x = np.power(np.cos((3 / 4) * np.pi * t - np.pi / 2), 3) * (u1 - u2)
-    # x = (np.cos(3 / 4. * np.pi * t - np.pi / 2.) ** 3) * (u1 - u2)
+     x=np.power(np.cos(((3.*np.pi*t)/4)-(np.pi/2.)),3)*(u1+(u2*(-1)))
+     
+     
+     plt.close('all')
+     plt.figure(facecolor='w')
+     plt.plot(t, x, 'k', linewidth=1.5)
+     
+     plt.xticks(fontsize=12)
+     plt.yticks(fontsize=12)
 
-    plt.close('all')
-    plt.figure(facecolor='w')
-    plt.plot(t, x, 'k', linewidth=1.5)
+     plt.xlabel('t(s)',fontsize=12)
+     plt.ylabel('x(t)',fontsize=12)
+     
+     plt.title('Lab1-2.3'+'\n'+r'$x(t)=\left ( cos \left ( \frac{3}{4} \pi t \right ) - \frac{\pi}{2} \right )^{3}(u(t)-u(t+4))$')
+     plt.grid()
 
     plt.xticks(fontsize=12)
     plt.yticks(fontsize=12)
