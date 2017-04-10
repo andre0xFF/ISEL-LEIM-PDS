@@ -4,30 +4,29 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    pass
+    item_01()
 
 
 def item_01():
     ni1=[0,32]
     
-    figFile='Lab_Ex1'
     
-    n1=np.arrange([ni1[0],ni1[1]+1])
+    n1=np.arange(ni1[0],ni1[1]+1,1)
     x1=np.cos(2*np.pi*n1/16.)
     
     
-    plt.figure(facecolor='m',figsize(7,3.5))
+    
+    plt.figure(facecolor='w',figsize=(7,3.5))
     
     plt.stem(n1,x1,'k',linewidth=1.5)
     plt.axis([ni1[0],ni1[1],-1.1,1.1])
     plt.xlabel
     plt.grid()
     
-    plt.title
+    plt.show()
     
     
-    
-    plt.saveFig(PngFile,bbox_inches)
+    plt.savefig("lab1_4.1.png", bbox_inches='tight', transparent=False)
     
     plt.close('all')
 
