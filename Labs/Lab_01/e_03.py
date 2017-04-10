@@ -11,33 +11,33 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    pass
+    item_01()
 
 
-def item_01_function(interval, n, f0):
-    x = np.zeros(len(interval))
+def item_01_sum(n, f0, t):
+    x = np.zeros(t.shape)
 
-    for k in np.arange(interval[0], interval[1] + 1):
-        x = np.sin(2 * np.pi * (2 * k - 1) * f0 * t) / (2 * k - 1)
+    for k in np.arange(1, n + 1):
+        x += np.sin(2 * np.pi * (2 * k - 1) * f0 * t) / (2 * k - 1)
 
-    x = x + 4 / np.pi * x
+    x *= 4 / np.pi
 
     return x
 
 
 def item_01():
     f0 = 1
-    interval = [0, 6 / f0]
+    interval = [0, 6. / f0]
     t = np.linspace(interval[0], interval[1], 1e04)
 
     n = 1
-    x_1 = item_01_function(interval, n, f0)
+    x_1 = item_01_sum(n, f0, t)
 
     n = 10
-    x_2 = item_01_function(interval, n, f0)
+    x_2 = item_01_sum(n, f0, t)
 
     n = 10000
-    x_3 = item_01_function(interval, n, f0)
+    x_3 = item_01_sum(n, f0, t)
 
     # Subplot of 3 lines and 1 column
     figure, (ax1, ax2, ax3) = plt.subplots(3, 1)
