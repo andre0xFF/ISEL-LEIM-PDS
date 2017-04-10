@@ -40,11 +40,50 @@ def item_01():
     x_3 = item_01_sum(n, f0, t)
 
     # Subplot of 3 lines and 1 column
-    figure, (ax1, ax2, ax3) = plt.subplots(3, 1)
+#    figure, (ax1, ax2, ax3) = plt.subplots(3, 1)
+    plt.figure( figsize=(8,8))
+    
+    
+    plt.subplot(3,1,1)
+    plt.plot(t,x_1)
+    
+    plt.axis([interval[0],interval[1],-1.5,1.5])
+    
+    plt.xticks(np.arange(interval[0], interval[1]+1), fontsize=12)
+    plt.yticks(np.arange(-1.5, 1.6, 0.5), fontsize=12)
+    
+    plt.title('Lab1-3.1' + '\n' + r'$x(t)=cos(2 \pi(15)t) (u(t+2)-u(t+1.53))$'+'\n'+'N=10')
+    
+    plt.grid()
 
-    ax1.plot(t, x_1)
-    ax2.plot(t, x_2)
-    ax3.plot(t, x_3)
+    
+
+    plt.subplot(3,1,2)
+    plt.plot(t,x_2)
+    
+
+    plt.axis([interval[0],interval[1],-1.5,1.5])
+    plt.xticks(np.arange(interval[0], interval[1] + 1), fontsize=12)
+    plt.yticks(np.arange(-1.5, 1.6, 0.5), fontsize=12)
+    
+    plt.title('N=10')
+    plt.grid()
+    
+
+    plt.subplot(3,1,3)
+    plt.plot(t,x_3)
+    
+    plt.axis([interval[0],interval[1],-1.5,1.5])
+    plt.xticks(np.arange(interval[0], interval[1] + 1), fontsize=12)
+    plt.yticks(np.arange(-1.5, 1.5,0.5), fontsize=12)
+    
+    plt.title('N=10000')
+    plt.grid()
+    
+    plt.tight_layout()
+    
+    plt.savefig('lab1-3.1.png', bbox_inches='tight', transparent=False)
+   
     plt.show()
 
 
