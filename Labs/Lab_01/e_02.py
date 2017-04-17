@@ -28,8 +28,6 @@ def item_01():
     plt.xlabel('t(s)', fontsize=12)
     plt.ylabel('x(t)', fontsize=12)
 
-    plt.title('Lab-1- 2.1'+'\n' + r'$x(t)=u(-2t-4)-u(-t-4)$')
-
     plt.title('Lab1- 2.1'+'\n' + r'$x(t)=u(-2t-4)-u(-t-4)$')
     plt.grid()
 
@@ -62,7 +60,7 @@ def item_02():
     plt.title('Lab1-2.2' + '\n' + r'$x(t)=cos(2 \pi(15)t) (u(t+2)-u(t+1.53))$')
     plt.grid()
 
-    plt.savefig('lab1-2.2.png', bbox_inches='tight', transparent=False)
+    plt.savefig('lab1_2.2.png', bbox_inches='tight', transparent=False)
     plt.show()
 
 
