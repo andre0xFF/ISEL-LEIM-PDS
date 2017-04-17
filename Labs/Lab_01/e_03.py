@@ -77,11 +77,12 @@ def item_02_sum(n, f0, t):
     x = np.zeros(t.shape)
 
     for k in np.arange(1, n + 1):
-        x += (np.sin( np.pi * k / 4 ) / ( np.pi * k / 4 ))*np.cos(2*np.pi*k*f0*t)
+        x += (np.sin(np.pi * k / 4) / (np.pi * k / 4)) * np.cos(2 * np.pi * k * f0 * t)
 
-    x +=-1 
+    x += -1
 
     return x
+
 
 def item_02():
     f0 = 1
@@ -106,7 +107,7 @@ def item_02():
     plt.axis([interval[0], interval[1], -2, 0.1])
     plt.xticks(np.arange(interval[0], interval[1]+1), fontsize=12)
     plt.yticks(np.arange(-2, 0.1, 0.5), fontsize=12)
-    
+
     plt.title('Lab1-3.2' + '\n' + r'$x(t)=-1+\sum_{k=1}^{N}\frac{\sin\left(\pi/4\right)}{\pi k/4}\cos\left(2 \pi k f_{0} t \right)$' + '\n' + 'N = 1')
     plt.grid()
 
@@ -139,11 +140,12 @@ def item_03_sum(n, f0, t):
     x = np.zeros(t.shape)
 
     for k in np.arange(1, n + 1):
-        x += np.sin( 2 * np.pi * k * f0 * t )/k
+        x += np.sin(2 * np.pi * k * f0 * t)/k
 
-    x *= 2 / np.pi    
+    x *= 2 / np.pi
 
     return x
+
 
 def item_03():
     f0 = 1
@@ -168,7 +170,7 @@ def item_03():
     plt.axis([interval[0], interval[1], -1, 1])
     plt.xticks(np.arange(interval[0], interval[1]+1), fontsize=12)
     plt.yticks(np.arange(-1, 1.1, 0.5), fontsize=12)
-    
+
     plt.title('Lab1-3.3' + '\n' + r'$x(t)=\frac{2}{ \pi} \sum_{k=1}^{N}\frac{\sin\left(2 \pi k f_{0}t\right)}{k}$' + '\n' + 'N = 1')
     plt.grid()
 
@@ -197,16 +199,16 @@ def item_03():
     plt.show()
 
 
-
 def item_04_sum(n, f0, t):
     x = np.zeros(t.shape)
 
     for k in np.arange(1, n + 1):
-        x += np.power(-1,k)*np.sin( 2 * np.pi *(2* k +1)* f0 * t )/np.power((2*k+1),2)
+        x += np.power(-1, k) * np.sin(2 * np.pi * (2 * k + 1) * f0 * t) / np.power((2 * k + 1), 2)
 
-    x *= 8 /np.power( np.pi, 2 )    
+    x *= 8 / np.power(np.pi, 2)
 
     return x
+
 
 def item_04():
     f0 = 0.25
@@ -231,7 +233,7 @@ def item_04():
     plt.axis([interval[0], interval[1], -0.1, 0.1])
     plt.xticks(np.arange(interval[0], interval[1]+1), fontsize=12)
     plt.yticks(np.arange(-0.1, 0.11, 0.05), fontsize=12)
-    
+
     plt.title('Lab1-3.4' + '\n' + r'$x(t)=\frac{8}{\pi^{2}}\sum_{k=1}^{N}(-1)^{k}\frac{\sin(2\pi(2k+1)f_{0}t)}{(2k+1)^{2}}$' + '\n' + 'N = 1')
     plt.grid()
 
