@@ -42,7 +42,7 @@ def item_01():
     plt.plot(t, x_1)
 
     plt.axis([interval[0], interval[1], -1.5, 1.5])
-    plt.xticks(np.arange(interval[0], interval[1]+1), fontsize=12)
+    plt.xticks(np.arange(interval[0], interval[1] + 1), fontsize=12)
     plt.yticks(np.arange(-1.5, 1.6, 0.5), fontsize=12)
 
     plt.title('Lab1-3.1', y=1.55, fontsize=18)
