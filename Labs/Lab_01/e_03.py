@@ -40,16 +40,15 @@ def item_01():
     # Subplt of 3 lines, 1 column, go to figure 1
     plt.subplot(3, 1, 1)
     plt.plot(t, x_1)
-    
+
     plt.axis([interval[0], interval[1], -1.5, 1.5])
     plt.xticks(np.arange(interval[0], interval[1]+1), fontsize=12)
     plt.yticks(np.arange(-1.5, 1.6, 0.5), fontsize=12)
 
-    plt.title('Lab1-3.1',y=1.55, fontsize=18)    
-    plt.suptitle( r'$x(t)=\frac{4}{ \pi} \sum_{k=1}^{N}\frac{sin(2 \pi (2k-1) f_{0}t)}{2k-1}$', y=0.95, fontsize=16)
-    plt.text(2.8,1.5,'N = 1 \n',fontsize=14)
+    plt.title('Lab1-3.1', y=1.55, fontsize=18)
+    plt.suptitle(r'$x(t)=\frac{4}{ \pi} \sum_{k=1}^{N}\frac{sin(2 \pi (2k-1) f_{0}t)}{2k-1}$', y=0.95, fontsize=16)
+    plt.text(2.8, 1.5, 'N = 1 \n', fontsize=14)
     plt.grid()
-    
 
     plt.subplot(3, 1, 2)
     plt.plot(t, x_2)
@@ -80,11 +79,12 @@ def item_02_sum(n, f0, t):
     x = np.zeros(t.shape)
 
     for k in np.arange(1, n + 1):
-        x += (np.sin( np.pi * k / 4 ) / ( np.pi * k / 4 ))*np.cos(2*np.pi*k*f0*t)
+        x += (np.sin( np.pi * k / 4) / (np.pi * k / 4)) * np.cos(2 * np.pi * k * f0 * t)
 
-    x +=-1 
+    x += -1
 
     return x
+
 
 def item_02():
     f0 = 1
@@ -107,13 +107,13 @@ def item_02():
     plt.plot(t, x_1)
 
     plt.axis([interval[0], interval[1], -2, 0.1])
-    plt.xticks(np.arange(interval[0], interval[1]+1), fontsize=12)
+    plt.xticks(np.arange(interval[0], interval[1] + 1), fontsize=12)
     plt.yticks(np.arange(-2, 0.1, 0.5), fontsize=12)
-    
-    plt.suptitle('Lab1-3.2',y=1.02 ,fontsize=18)
-    plt.title(r'$x(t)=-1+\sum_{k=1}^{N}\frac{\sin\left(\pi/4\right)}{\pi k/4}\cos\left(2 \pi k f_{0} t \right)$' ,y=1.25,fontsize=16)
-   
-    plt.text(2.8,0.2,'N = 1',fontsize=14)
+
+    plt.title('Lab1-3.2', y=1.55, fontsize=18)
+    plt.suptitle(r'$x(t)=-1+\sum_{k=1}^{N}\frac{\sin\left(\pi/4\right)}{\pi k/4}\cos\left(2 \pi k f_{0} t \right)$', y=0.95, fontsize=16)
+
+    plt.text(2.8, 0.2, 'N = 1', fontsize=14)
     plt.grid()
 
     plt.subplot(3, 1, 2)
@@ -123,7 +123,7 @@ def item_02():
     plt.xticks(np.arange(interval[0], interval[1] + 1), fontsize=12)
     plt.yticks(np.arange(-2, 1.1, 0.5), fontsize=12)
 
-    plt.title('N = 10',fontsize=14)
+    plt.title('N = 10', fontsize=14)
     plt.grid()
 
     plt.subplot(3, 1, 3)
@@ -133,7 +133,7 @@ def item_02():
     plt.xticks(np.arange(interval[0], interval[1] + 1), fontsize=12)
     plt.yticks(np.arange(-2, 1.1, 0.5), fontsize=12)
 
-    plt.title('N = 10000',fontsize=14)
+    plt.title('N = 10000', fontsize=14)
     plt.grid()
 
     plt.tight_layout()
@@ -145,11 +145,12 @@ def item_03_sum(n, f0, t):
     x = np.zeros(t.shape)
 
     for k in np.arange(1, n + 1):
-        x += np.sin( 2 * np.pi * k * f0 * t )/k
+        x += np.sin(2 * np.pi * k * f0 * t) / k
 
-    x *= 2 / np.pi    
+    x *= 2 / np.pi
 
     return x
+
 
 def item_03():
     f0 = 1
@@ -174,10 +175,10 @@ def item_03():
     plt.axis([interval[0], interval[1], -1, 1])
     plt.xticks(np.arange(interval[0], interval[1]+1), fontsize=12)
     plt.yticks(np.arange(-1, 1.1, 0.5), fontsize=12)
-    
-    plt.suptitle('Lab1-3.3',y=1.02,fontsize=18)
-    plt.title(r'$x(t)=\frac{2}{ \pi} \sum_{k=1}^{N}\frac{\sin\left(2 \pi k f_{0}t\right)}{k}$',y=1.2,fontsize=16)
-    plt.text(2.8,1.05,'N = 1',fontsize=14)
+
+    plt.title('Lab1-3.3', y=1.55, fontsize=18)
+    plt.suptitle(r'$x(t)=\frac{2}{ \pi} \sum_{k=1}^{N}\frac{\sin\left(2 \pi k f_{0}t\right)}{k}$', y=0.95, fontsize=16)
+    plt.text(2.8, 1.05, 'N = 1', fontsize=14)
     plt.grid()
 
     plt.subplot(3, 1, 2)
@@ -187,7 +188,7 @@ def item_03():
     plt.xticks(np.arange(interval[0], interval[1] + 1), fontsize=12)
     plt.yticks(np.arange(-1.5, 1.6, 0.5), fontsize=14)
 
-    plt.title('N = 10',fontsize=14)
+    plt.title('N = 10', fontsize=14)
     plt.grid()
 
     plt.subplot(3, 1, 3)
@@ -197,7 +198,7 @@ def item_03():
     plt.xticks(np.arange(interval[0], interval[1] + 1), fontsize=12)
     plt.yticks(np.arange(-1.5, 1.6, 0.5), fontsize=14)
 
-    plt.title('N = 10000',fontsize=14)
+    plt.title('N = 10000', fontsize=14)
     plt.grid()
 
     plt.tight_layout()
@@ -205,16 +206,16 @@ def item_03():
     plt.show()
 
 
-
 def item_04_sum(n, f0, t):
     x = np.zeros(t.shape)
 
-    for k in np.arange(1, n + 1):
-        x += np.power(-1,k)*np.sin( 2 * np.pi *(2* k +1)* f0 * t )/np.power((2*k+1),2)
+    for k in np.arange(0, n + 1):
+        x += np.power(-1, k) * np.sin(2 * np.pi * (2 * k + 1) * f0 * t) / np.power((2 * k + 1), 2)
 
-    x *= 8 /np.power( np.pi, 2 )    
+    x *= 8 / np.power(np.pi, 2)
 
     return x
+
 
 def item_04():
     f0 = 0.25
@@ -236,33 +237,33 @@ def item_04():
     plt.subplot(3, 1, 1)
     plt.plot(t, x_1)
 
-    plt.axis([interval[0], interval[1], -0.1, 0.1])
-    plt.xticks(np.arange(interval[0], interval[1]+1), fontsize=12)
-    plt.yticks(np.arange(-0.1, 0.11, 0.05), fontsize=12)
-    
-    plt.suptitle('Lab1-3.4',y=1.03,fontsize=18)
-    plt.title(r'$x(t)=\frac{8}{\pi^{2}}\sum_{k=1}^{N}(-1)^{k}\frac{\sin(2\pi(2k+1)f_{0}t)}{(2k+1)^{2}}$',y=1.25,fontsize=16)
-    plt.text(11,0.115,'N = 1',fontsize=14)
+    plt.axis([interval[0], interval[1], -1, 1])
+    plt.xticks(np.arange(interval[0], interval[1] + 1), fontsize=12)
+    plt.yticks(np.arange(-1, 1.1, 0.2), fontsize=12)
+
+    plt.title('Lab1-3.4', y=1.55, fontsize=18)
+    plt.suptitle(r'$x(t)=\frac{8}{\pi^{2}}\sum_{k=1}^{N}(-1)^{k}\frac{\sin(2\pi(2k+1)f_{0}t)}{(2k+1)^{2}}$', y=0.95, fontsize=16)
+    plt.text(11, 1.1, 'N = 1', fontsize=14)
     plt.grid()
 
     plt.subplot(3, 1, 2)
     plt.plot(t, x_2)
 
-    plt.axis([interval[0], interval[1], -0.2, 0.2])
+    plt.axis([interval[0], interval[1], -1, 1])
     plt.xticks(np.arange(interval[0], interval[1] + 1), fontsize=12)
-    plt.yticks(np.arange(-0.2, 0.21, 0.05), fontsize=14)
+    plt.yticks(np.arange(-1, 1.1, 0.2), fontsize=14)
 
-    plt.title('N = 10',fontsize=14)
+    plt.title('N = 10', fontsize=14)
     plt.grid()
 
     plt.subplot(3, 1, 3)
     plt.plot(t, x_3)
 
-    plt.axis([interval[0], interval[1], -0.2, 0.2])
+    plt.axis([interval[0], interval[1], -1, 1])
     plt.xticks(np.arange(interval[0], interval[1] + 1), fontsize=12)
-    plt.yticks(np.arange(-0.2, 0.21, 0.05), fontsize=14)
+    plt.yticks(np.arange(-1, 1.1, 0.2), fontsize=14)
 
-    plt.title('N = 10000',fontsize=14)
+    plt.title('N = 10000', fontsize=14)
     plt.grid()
 
     plt.tight_layout()
