@@ -19,8 +19,7 @@ def item_01():
     
     n=np.arange(interval[0],interval[1]+1,1)
     x=np.cos(2*np.pi*n/16.)
-    
-    
+      
     
     plt.figure(facecolor='w',figsize=(7,3.5))
     
@@ -29,7 +28,9 @@ def item_01():
     
     plt.grid()
     
-   
+    
+    plt.suptitle('Lab1-4.1',y=1.08,fontsize=18)
+    plt.title( r'$x[n]=\cos \left[2\pi\frac{n}{16}\right]$',y=1.02,fontsize=16)
     
     
     plt.savefig("lab1_4.1.png", bbox_inches='tight', transparent=False)
@@ -51,7 +52,8 @@ def item_02():
     
     plt.grid()
     
-    
+    plt.suptitle('Lab1-4.2',y=1.08,fontsize=18)
+    plt.title( r'$x[n]=\frac{10}{\pi n}\sin \left[\frac{\pi n}{10}\right], x[0]=1$',y=1.02,fontsize=16)
     
     plt.savefig("lab1_4.2.png", bbox_inches='tight', transparent=False)
     plt.show()
@@ -72,7 +74,8 @@ def item_03():
     
     plt.grid()
     
-    
+    plt.suptitle('Lab1-4.3',y=1.08,fontsize=20)
+    plt.title( r'$x[n]=e^{- \left |\frac{n}{3} \right |}\cos\left[2\pi\frac{n}{2} \right ]$',y=1.02,fontsize=18)
     
     plt.savefig("lab1_4.3.png", bbox_inches='tight', transparent=False)
     plt.show()
@@ -92,7 +95,8 @@ def item_04():
     
     plt.grid()
     
-    
+    plt.suptitle('Lab1-4.4',y=1.08,fontsize=20)
+    plt.title( r'$x[n]=e^{- \left |\frac{n}{10} \right |}\sin\left[2\pi\frac{n}{20} \right ]$',y=1.02,fontsize=18)
     
     plt.savefig("lab1_4.4.png", bbox_inches='tight', transparent=False)
     plt.show()
@@ -112,15 +116,14 @@ def item_05():
     plt.axis([interval[0],interval[1],-1.5,1.5  ])
     
     plt.grid()
+    
+    plt.suptitle('Lab1-4.5',y=1.08,fontsize=18)
+    plt.title( r'$x[n]=\frac{1}{2}\left(1+\cos \left[2\pi\frac{n}{100}\right]\right)\cos (\pi n)$',y=1.02,fontsize=16)
+    
     plt.savefig("lab1_4.5.png", bbox_inches='tight', transparent=False)
     plt.show()
-    
-    
-   
-    
+
     plt.close('all')
-
-
 
 
 def item_06():
@@ -136,11 +139,12 @@ def item_06():
     plt.axis([interval[0],interval[1],-1.5,1.5  ])
     
     plt.grid()
+    
+    plt.suptitle('Lab1-4.6',y=1.08,fontsize=18)
+    plt.title( r'$x[n]=\cos \left[\frac{2\pi}{20}\left(50+10\cos\left[\frac{2\pi n}{20}\right]\right)\right]$',y=1.02,fontsize=16)
+    
     plt.savefig("lab1_4.6.png", bbox_inches='tight', transparent=False)
     plt.show()
-    
-    
-   
     
     plt.close('all')
 
