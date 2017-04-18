@@ -19,7 +19,7 @@ def item_01():
 
     plt.close('all')
     plt.figure(facecolor='w')
-    plt.plot(t, x, 'k', linewidth=1.5)
+    plt.plot(t, x, linewidth=1.5)
 
     plt.axis([interval[0], interval[1], -0.1, 1.1])
     plt.xticks(fontsize=12)
@@ -48,7 +48,7 @@ def item_02():
 
     plt.close('all')
     plt.figure(facecolor='w')
-    plt.plot(t, x, 'k', linewidth=1.5)
+    plt.plot(t, x, linewidth=1.5)
 
     plt.axis([interval[0], interval[1], -1.2, 1.2])
     plt.xticks(fontsize=12)
@@ -75,7 +75,7 @@ def item_03():
 
     plt.close('all')
     plt.figure(facecolor='w')
-    plt.plot(t, x, 'k', linewidth=1.5)
+    plt.plot(t, x, linewidth=1.5)
 
     plt.axis([interval[0], interval[1], -1, 1])
     plt.xticks(fontsize=12)
