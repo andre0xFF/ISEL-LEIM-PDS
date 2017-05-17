@@ -30,3 +30,14 @@ marioSong = (
 # pysynth.make_wav(test, fn = "test.wav")
 pysynth.make_wav(marioSong, bpm = 200, fn = "marioSong.wav")
 ```
+
+* ADSR
+
+A 20%
+D 10%
+S 50%
+R 20%
+
+* Item 3
+
+Use sinwave

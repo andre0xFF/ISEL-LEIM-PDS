@@ -12,23 +12,32 @@ def ADSR_env0(N=[]):
 
 def ADSR_env1(N=[]):
     Dur = (0.1, 0.2, 0.6, 0.1)
+
     nA = np.floor(N * Dur[0])
     nD = np.floor(N * Dur[1])
     nS = np.floor(N * Dur[2])
     nR = N - nA - nD - nS
-    zA = np.linspace(0, 1, nA)
-    # faltam aqui coisas
+
+    xA = np.linspace(0, 1, nA)
     xD = np.linspace(1, .8, nD)
     xS = np.ones(nS) * 0.8
     xR = np.linspace(0.8, 0, nR)
-    # faltam aqui coisas
-    xEnv = np.hstack()
+
+    xEnv = np.hstack((xA, xD, xS, xR))
     return xEnv
+
+
+def ADSR_env2(N=[]):
+    # sustain amplitude
+    sA = .6
+    Dur = (0.1, 0.4, 0.4, 0.1)
+
+    # faltam aqui coisas
 
 
 def F2P3(noteList, notaDur):
     intDur = 0.05
-    wavType = 3
+    wavType = 1
     Fs = 22050/2
 
     x = np.array([])
@@ -58,10 +67,11 @@ def Note_tone(nota=[], notaDur=[], intDur=[], wavType=[], Fs=[]):
     elif == 4:
         x = sg.sawtooth(2 * np.pi * fc * t)
     else:
-        print '\n wave type (%d) not available (only ints 1-4)\n'%wavType
+        print '\n wave type (%d) not available (only ints 1-4)\n' % wavType
 
     xEnv = ADSR_env2(len(x))
     plt.figure(facecolor='w')
     plt.plot(xEnv)
 
-    # faltam aqui coisas
+    x = x * xEnv
+    return x
