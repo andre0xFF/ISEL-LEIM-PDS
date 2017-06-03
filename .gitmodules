@@ -1,7 +1,9 @@
 [submodule "PySynth"]
 	path = PySynth
 	url = git@github.com:mdoege/PySynth.git
-    ignore = untracked
+    	ignore = untracked
 [submodule "soundPlay"]
 	path = soundPlay
 	url = git@github.com:andrewfonseca/PDS-soundPlay.git
+	ignore = untracked
+
