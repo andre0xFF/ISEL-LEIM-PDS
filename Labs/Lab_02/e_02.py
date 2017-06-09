@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sun May 28 19:46:19 2017
-
-@author: Danie
-"""
-
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.io.wavfile as wavfile
