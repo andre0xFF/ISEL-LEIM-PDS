@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Jun  6 19:08:40 2017
-
-@author: Danie
-"""
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -11,7 +6,6 @@ import scipy.io.wavfile as wavfile
 from SoundPlay import soundPlay
 import sys
 sys.path.append('../../PySynth')
-
 import notasdic
 
 #color Map
