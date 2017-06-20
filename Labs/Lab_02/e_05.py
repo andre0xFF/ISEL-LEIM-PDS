@@ -6,6 +6,7 @@ import scipy.io.wavfile as wavfile
 from SoundPlay import soundPlay
 import sys
 sys.path.append('../../PySynth')
+
 import notasdic
 
 #color Map
@@ -15,7 +16,7 @@ plt.rcParams['image.cmap'] = 'viridis'
 
 sampFreq, snd =wavfile.read('x2.wav') # load the data
 
-x=snd/2.**13
+x = snd / 2.**13
 
 t = np.arange(0, len(x)) /np.float(sampFreq)
 
@@ -23,52 +24,52 @@ t = np.arange(0, len(x)) /np.float(sampFreq)
 plt.plot(t[0:1000], x[0:1000], 'k')
 plt.show()
 plt.plot(x)
-plt.savefig("lab2_ex5_Sinal.png", bbox_inches='tight', transparent=False)
+plt.savefig("lab2_ex5_Sinal.png", bbox_inches = 'tight', transparent = False)
 plt.show()
 
 
-plt.figure(facecolor='w', figsize=(30, 20))
+plt.figure(facecolor = 'w', figsize = (30, 20))
 
-NFFT=512*4
+NFFT = 512 * 3
 
-[a,b,c,d]=plt.specgram(x, NFFT=NFFT, Fs=sampFreq, noverlap=0)
-plt.savefig("lab2_ex5_espectrograma.png", bbox_inches='tight', transparent=False)
+[a,b,c,d]=plt.specgram(x, NFFT = NFFT, Fs = sampFreq, noverlap = 0)
+plt.savefig("lab2_ex5_espectrograma.png", bbox_inches = 'tight', transparent = False)
 
 
 #shape do espectrograma(numero de linhas e colunas)
-shapeColorSpecgram=np.shape(a)
+shapeColorSpecgram = np.shape(a)
 
-numRows=shapeColorSpecgram[0]
-numCol=shapeColorSpecgram[1]
+numRows = shapeColorSpecgram[0]
+numCol = shapeColorSpecgram[1]
 
 #array com os tempos médios do espectrograma para cada nfft
-arrayTime=c
+arrayTime = c
 
 #array com as frequências do espectrograma para cada nfft
-arrayFreq=b
+arrayFreq = b
 
-auxColorIntensity=0;
-maxColorIntensity=0;
+auxColorIntensity = 0;
+maxColorIntensity = 0;
 
-indexIntensity=[]
-index=0
+indexIntensity = []
+index = 0
 
-notaTime=[]
-noteSong=[]
+notaTime = []
+noteSong = []
 #calcula e guarda os indices com maior intensidade de cor para cada coluna de NFFT do espectrograma
 for x in range(0, numCol):
     for y in range(0, numRows):
 
-        auxColorIntensity=a[y][x]
+        auxColorIntensity = a[y][x]
         
-        if auxColorIntensity>maxColorIntensity:
-            maxColorIntensity=auxColorIntensity
+        if auxColorIntensity > maxColorIntensity:
+            maxColorIntensity = auxColorIntensity
 
-            index=y
+            index = y
     #contêm valores de indice repetidos devido á duração de cada nota [3,3,3,14,14,31,31,31,65,65,65,65]
     indexIntensity.append(index)
 
-    maxColorIntensity=0;
+    maxColorIntensity = 0;
     
 
 
@@ -86,23 +87,23 @@ noteSong.append(arrayFreq[indexIntensity[len(indexIntensity)-1]])
 
   
 
-noteTempo=[]
-noteTempo.append(np.int(2./notaTime[0]))
+noteTempo = []
+noteTempo.append(np.int(2. / notaTime[0]))
 for x in range(1,len(notaTime)):
-    noteTempo.append(np.int(np.round(2./(notaTime[x]-notaTime[x-1]))))
+    noteTempo.append(np.int(np.round(2. / (notaTime[x]-notaTime[x-1]))))
 
 
 #recebe as frequências e durações das notas e retorna a notação ABC da Musica/Composição
-def createABC(Freq=[],Time=[]):
+def createABC(Freq = [],Time = []):
     
 
-    dic= notasdic.notasDic();
+    dic = notasdic.notasDic();
 
-    song=[]
+    song = []
    
-    count=0
-    dif=None
-    auxTuple=None
+    count = 0
+    dif = None
+    auxTuple= None
     
     #identifica qual a nota a que corresponde a frequência recebida e qual a sua respectiva duração
     for x in range(0, len(Freq)):
@@ -110,14 +111,14 @@ def createABC(Freq=[],Time=[]):
         for key, val in dic.items():
 
             if(dif is None):
-                dif=np.abs(Freq[x]-val)
+                dif = np.abs(Freq[x] - val)
                 
-            if(np.abs(Freq[x]-val)<=dif):
+            if(np.abs(Freq[x]-val) <= dif):
         
-                dif=np.abs(Freq[x]-val)
-                auxTuple=(key,Time[count])
+                dif = np.abs(Freq[x] - val)
+                auxTuple = (key,Time[count])
 
-        dif=None
+        dif = None
         count+=1
         song.append(auxTuple)
 

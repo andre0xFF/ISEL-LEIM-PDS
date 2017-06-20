@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.io.wavfile as wavfile
@@ -9,17 +8,17 @@ from SoundPlay import soundPlay
 import notasdic
 
 
-FS=11025
+FS = 11025
 
-NFFT=512*2
+NFFT = 512 * 2
 
-dur=2.
-plt.close(" all ")
+dur = 2.
+plt.close("all")
 
 
 #Musica1
-song=["c",4],["d2",4],["e3",4],["f4",2]
-print("nota")
+song = ["c",4],["d2",4],["e3",4],["f4",2]
+
 
 #Musica2
 marioSong = (
@@ -34,39 +33,36 @@ marioSong = (
 
 
 def music(song):
-    
-        
-        
-    noteList6=[]
-    notedur6=[]
+
+    noteList6 = []
+    notedur6 = []
     for i, x in enumerate(song):
         #guarda na lista noteList6 o nome das notas
-        noteList6=np.hstack((noteList6,x[0]))
+        noteList6 = np.hstack((noteList6,x[0]))
         
         #guarda na lista notedur6 a duração de cada uma das notas da musica
-        notedur6=np.hstack((notedur6,dur/x[1]))
+        notedur6 = np.hstack((notedur6,dur/x[1]))
     
     
-    intDur=0.05
+    intDur = 0.05
     #define o tipo de onda das notas musicais
-    wavType=1
+    wavType = 1
     #frequência de cada nota(11025 para se conseguir reproduzir no mediaplayer etc..)
-    FS=11025
+    FS = 11025
     
-    x=np.array([])
+    x = np.array([])
     
     #ciclo responsável por criar cada nota musical com a sua 
     for i in range(0,len(noteList6)):
-        xtmp=Note_tone(noteList6[i],notedur6[i],intDur,wavType,FS)
+        xtmp = Note_tone(noteList6[i], notedur6[i], intDur, wavType, FS)
         
         t = np.arange(0, notedur6[i], 1 / FS)
         
         
-        x=np.hstack((x,xtmp))
+        x = np.hstack((x,xtmp))
         
         
         #print de cada nota individualmente
-        print(noteList6[i])
         plt.plot(t[0:1000], x[0:1000], 'k')
         plt.title('Sinal Nota -'+noteList6[i])
         plt.xlabel(r'$t$ (segundos)')
@@ -78,23 +74,23 @@ def music(song):
 
     
 #retorna a sinal da nota
-def Note_tone(nota=[], notaDur=[], intDur=[], wavType=[], Fs=[]):
+def Note_tone(nota = [], notaDur = [], intDur = [], wavType = [], Fs = []):
 
 
 
     #dicionario das notas com as respectivas frequências
-    notasDic=notasdic.notasDic()
+    notasDic = notasdic.notasDic()
 
     #passa apenas a primeira letra da musica para Maiuscula
     for i in range(len(nota)):
-        if(i==0):
-            strTmp=nota[0][0].upper()
+        if(i == 0):
+            strTmp = nota[0][0].upper()
         else:
-            strTmp=strTmp+nota[i]
+            strTmp = strTmp+nota[i]
    
     
     #frequência da nota
-    fc=notasDic[strTmp]
+    fc = notasDic[strTmp]
 
     #numero de pontos(duração) que a nota tem
     t = np.arange(0, notaDur, 1 / Fs)
@@ -107,7 +103,7 @@ def Note_tone(nota=[], notaDur=[], intDur=[], wavType=[], Fs=[]):
         x = np.square(2 * np.pi * fc * t)
     elif wavType == 3:
         x = np.sawtooth(2 * np.pi * fc * t, 0.5)
-    elif wavType== 4:
+    elif wavType == 4:
         x = np.sawtooth(2 * np.pi * fc * t)
     else:
         print ('\n wave type (%d) not available (only ints 1-4)\n'%wavType)
@@ -123,11 +119,10 @@ soundPlay.soundPlay(x,FS)
 filename = 'x2.wav'
 x1Int = np.int16(x * 2**13)
 wavfile.write(filename, FS, x1Int)
-print("sinal")
 #plt.plot(x)
 #plt.show()
 
-plt.figure(facecolor='w', figsize=(10, 20))
+plt.figure(facecolor='w', figsize=(30, 30))
 plt.title(" Sinal Musica")
 plt.plot( x, 'k')
 plt.xlabel(r'$t$ (segundos)')
@@ -140,7 +135,7 @@ plt.show()
 
 
 #calculo de fft(transformada rápida de fourier)
-N=4096
+N = 4096
 
 xfft = np.fft.fft(x[0:N])
 
@@ -150,37 +145,36 @@ Xfase = np.angle(xfft)
 
 
 #Espectro amplitude
-plt.figure(facecolor='w', figsize=(10, 20))
+plt.figure(facecolor = 'w', figsize = (10, 20))
 plt.title("Espectro amplitude")
-plt.stem(freq1, x1mag, 'k', linewidth=3)
-plt.ylabel('Espectro amplitude', fontsize=18)
+plt.stem(freq1, x1mag, 'k', linewidth = 3)
+plt.ylabel('Espectro amplitude', fontsize = 18)
 plt.xlabel('f(Hz)', fontsize=18)
 
-plt.xticks(fontsize=22)
-plt.yticks(fontsize=22)
+plt.xticks(fontsize = 22)
+plt.yticks(fontsize = 22)
 plt.grid()
-plt.savefig("lab2_ex2_espectroAmplitude.png", bbox_inches='tight', transparent=False)
+plt.savefig("lab2_ex2_espectroAmplitude.png", bbox_inches = 'tight', transparent = False)
 plt.show()
 
 
 #Espectro Fase
-plt.figure(facecolor='w', figsize=(10, 20))
+plt.figure(facecolor = 'w', figsize = (10, 20))
 plt.title("Espectro Fase")
 Xfase = np.angle(xfft)
-plt.stem(freq1, Xfase, 'k', linewidth=3)
+plt.stem(freq1, Xfase, 'k', linewidth = 3)
 plt.axis([-5800, 5800, -np.pi, np.pi])
-plt.ylabel('Espectro de fase', fontsize=18)
-plt.xlabel('f(Hz)', fontsize=18)
-plt.xticks(fontsize=22)
-plt.yticks(fontsize=22)
+plt.ylabel('Espectro de fase', fontsize = 18)
+plt.xlabel('f(Hz)', fontsize = 18)
+plt.xticks(fontsize = 22)
+plt.yticks(fontsize = 22)
 plt.grid()
-plt.savefig("lab2ex2_espectroFase.png", bbox_inches='tight', transparent=False)
+plt.savefig("lab2ex2_espectroFase.png", bbox_inches = 'tight', transparent = False)
 plt.show()
 
 #Espectrograma
-plt.figure(facecolor='w', figsize=(30, 20))
-
-plt.specgram(x, NFFT=NFFT, Fs=FS, noverlap=0)
-plt.savefig("lab2_ex2_espectrograma.png", bbox_inches='tight', transparent=False)
+plt.figure(facecolor = 'w', figsize = (30, 20))
+plt.specgram(x, NFFT = NFFT, Fs = FS, noverlap = 0)
+plt.savefig("lab2_ex2_espectrograma.png", bbox_inches = 'tight', transparent = False)
 
 
