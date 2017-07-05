@@ -5,13 +5,38 @@ import matplotlib.pyplot as plt
 
 def main():
     item_a()
-    item_c()
+    # item_c()
 
 
 def item_a():
-    "b) corta banda"
-    b = ss.firwin(101, [0.1, 0.9])
-    w, h = ss.freqz(b)
+    # c = 1
+    w, h = ss.freqz([1], [1, 0.8])
+    plt.figure()
+    plt.plot(w, np.abs(h))
+    plt.show()
+
+    w, h = ss.freqz([1], [1, 0.9])
+    plt.figure()
+    plt.plot(w, np.abs(h))
+    plt.show()
+
+    w, h = ss.freqz([1], [1, 0.1])
+    plt.figure()
+    plt.plot(w, np.abs(h))
+    plt.show()
+
+    # c = 2
+    w, h = ss.freqz([1], [1, 0, 0.8])
+    plt.figure()
+    plt.plot(w, np.abs(h))
+    plt.show()
+
+    w, h = ss.freqz([1], [1, 0, 0.9])
+    plt.figure()
+    plt.plot(w, np.abs(h))
+    plt.show()
+
+    w, h = ss.freqz([1], [1, 0, 0.1])
     plt.figure()
     plt.plot(w, np.abs(h))
     plt.show()
