@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    item_a()
-    # item_c()
+    # item_a()
+    item_c()
 
 
 def item_a():
