@@ -4,6 +4,6 @@
     	ignore = untracked
 [submodule "soundPlay"]
 	path = soundPlay
-	url = git@github.com:andrewfonseca/PDS-soundPlay.git
+	url = git@github.com:andrewfonseca/ISEL-LEIM-PDS-soundPlay.git
 	ignore = untracked
 
